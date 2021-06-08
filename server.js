@@ -14,14 +14,11 @@ const PORT = process.env.PORT || 3000
 io.on('connection', (socket) => {
     socket.on('msz', data => {
       var mszData = data;
-        console.log(`${mszData}`);
-        io.sockets.emit('all',`${mszData}`);
+      io.sockets.emit('all',`${mszData}`);
     })
     socket.on('disconnect',() => {
       io.sockets.emit('all','user disconnected')
     })
 });
 
-server.listen(PORT, () => {
-  console.log('CHAT APP listening');
-});
+server.listen(PORT);

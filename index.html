@@ -27,8 +27,6 @@
     var username = document.getElementById("name");
     var ul = document.getElementById("messages");
 
-    var name = 'pratiush';
-
     function showMsz(){
       if(username.value && msz.value){
         var sendMsz = `[ ${username.value} ] ~ ${msz.value} `;
@@ -39,7 +37,6 @@
 
     socket.on('all', (mszData) => {
       var li = document.createElement("li");
-      console.log(mszData);
       li.appendChild(document.createTextNode(mszData));
       ul.appendChild(li);
     });

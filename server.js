@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+const PORT = process.env.PORT || 3000
+
 io.on('connection', (socket) => {
     socket.on('msz', data => {
       var mszData = data;
@@ -20,6 +22,6 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(3000, () => {
-  console.log('CHAT APP listening on : 3000');
+server.listen(PORT, () => {
+  console.log('CHAT APP listening');
 });

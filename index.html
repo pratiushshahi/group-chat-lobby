@@ -20,8 +20,8 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
 <script>
-    const PORT = process.env.PORT;
-    const socket = io(`https://group-chat-lobby.herokuapp.com/${PORT}`);
+    
+    const socket = io('https://group-chat-lobby.herokuapp.com/');
     document.getElementById("button").addEventListener("click", showMsz);
     var msz = document.getElementById("input");
     var username = document.getElementById("name");

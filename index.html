@@ -29,11 +29,22 @@
 <script>
     
     const socket = io('https://group-chat-lobby.herokuapp.com/');
-    document.getElementById("button").addEventListener("click", showMsz);
+    var buttonSend = document.getElementById("button");
     var msz = document.getElementById("input");
     var username = document.getElementById("name");
     var ul = document.getElementById("messages");
 
+    // send on enter 
+    buttonSend.addEventListener("click", showMsz);
+    msz.addEventListener("keyup", function(e) {
+        if (e.keyCode === 13) {
+            buttonSend.click();
+        }
+    });
+   
+    //
+  
+  
     function showMsz(){
       if(username.value && msz.value){
         var sendMsz = `[ ${username.value} ] ~ ${msz.value} `;
